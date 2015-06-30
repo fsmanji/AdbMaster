@@ -1,0 +1,35 @@
+1. Show the activity stack of your app in runtime:
+
+> adb shell dumpsys activity activities |grep -E 'Run'
+>    Running activities (most recent first):
+        Run #3: ActivityRecord{32d2b235 u0 com.android.mms/.ui.ConversationComposer t142}
+        Run #2: ActivityRecord{15afef7b u0 com.android.incallui/.InCallActivity t145}
+        Run #1: ActivityRecord{3f1afcc4 u0 com.yahoo.mobile.client.android.flickr/.ui.misc.LoginActivity t140}
+        Run #0: ActivityRecord{27f2f8a9 u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.searchnow.SearchNowActivity t134}
+    Running activities (most recent first):
+        Run #0: ActivityRecord{22d25b6e u0 com.sec.android.app.launcher/com.android.launcher2.Launcher t126}
+
+
+2. Automatically update the activity stack:
+(you need to open a spare tab on your terminal)
+> watch "adb shell dumpsys activity activities |grep -E 'Run'"
+> (demo output when opening the 'Messages' app on a Samsung S4)
+
+Every 2.0s: adb shell dumpsys activity activities |grep -E 'Run'                                          Mon Jun 29 17:07:55 2015
+
+    Running activities (most recent first):
+        Run #4: ActivityRecord{119c8d8b u0 com.android.server.telecom/.ErrorDialogActivity t144}
+        Run #3: ActivityRecord{15afef7b u0 com.android.incallui/.InCallActivity t145}
+        Run #2: ActivityRecord{32d2b235 u0 com.android.mms/.ui.ConversationComposer t142}
+        Run #1: ActivityRecord{3f1afcc4 u0 com.yahoo.mobile.client.android.flickr/.ui.misc.LoginActivity t140}
+        Run #0: ActivityRecord{27f2f8a9 u0 com.google.android.googlequicksearchbox/com.google.android.apps.gsa.searchnow.SearchNow
+Activity t134}
+    Running activities (most recent first):
+        Run #0: ActivityRecord{22d25b6e u0 com.sec.android.app.launcher/com.android.launcher2.Launcher t126}
+
+
+
+If you don't have watch installed, check the following link on how
+to install it on Mac.
+http://osxdaily.com/2010/08/22/install-watch-command-on-os-x/
+
